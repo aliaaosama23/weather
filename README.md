@@ -1,7 +1,6 @@
 # weather app
 
-A new Flutter project.
-
+* written with dart with flutter framework
 ## Getting Started
 
 * This app is for getting current weather tempature and 
