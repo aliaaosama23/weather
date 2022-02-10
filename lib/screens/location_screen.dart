@@ -44,16 +44,14 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   getWeatherDataByLocation() async {
+    dataReturned = false;
     // get location : async operation take some times
     LocationService location = LocationService();
     Location currentLocation = await location.getCurrentLocation();
-    print(' currentLocation lat is ${currentLocation.latitude}');
-    print(' currentLocation  long is ${currentLocation.longitude}');
 
     // get weather data : async operation take some times
     WeatherService weather = WeatherService();
     var weatherData = await weather.fetchWeatherDataByLocation(currentLocation);
-    print('all data from weather is ${weatherData}');
     updateUi(weatherData);
     dataReturned = true;
   }
@@ -62,7 +60,6 @@ class _LocationScreenState extends State<LocationScreen> {
     // get weather data : async operation take some times
     WeatherService weather = WeatherService();
     var weatherData = await weather.fetchWeatherDataByCityName(cityName);
-    print('all data from weather is ${weatherData}');
     updateUi(weatherData);
     dataReturned = true;
   }
@@ -146,11 +143,6 @@ class _LocationScreenState extends State<LocationScreen> {
                           const SizedBox(
                             width: 10,
                           ),
-                          // Icon(
-                          //   Icons.cloud,
-                          //   color: Colors.lightBlue.shade200,
-                          //   size: 100,
-                          // ),
                           if (icon != '')
                             Image.network(
                               'http://openweathermap.org/img/wn/$icon@2x.png',
@@ -164,16 +156,18 @@ class _LocationScreenState extends State<LocationScreen> {
                           const Text(
                             'Temp Min  :',
                             style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             tempMin.toStringAsFixed(1),
                             style: const TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           )
                         ],
                       ),
@@ -182,20 +176,22 @@ class _LocationScreenState extends State<LocationScreen> {
                           const Text(
                             'Temp Max  :',
                             style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             tempMax.toStringAsFixed(1),
                             style: const TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           )
                         ],
                       ),
-                      Spacer(
+                      const Spacer(
                         flex: 4,
                       ),
                       Text(
