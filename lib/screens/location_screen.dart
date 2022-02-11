@@ -5,6 +5,7 @@ import 'package:weather_app/screens/city_screen.dart';
 import 'package:weather_app/services/location_service.dart';
 import 'package:weather_app/services/weather_service.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:weather_app/utilities/constants.dart';
 
 // get user current location then display weather
 class LocationScreen extends StatefulWidget {
@@ -124,21 +125,14 @@ class _LocationScreenState extends State<LocationScreen> {
                         children: [
                           Text(
                             temp.toStringAsFixed(1),
-                            style: const TextStyle(
-                              fontSize: 100,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kTempTextStyle,
                           ),
                           const SizedBox(
                             width: 10,
                           ),
                           const Text(
                             '\u2070',
-                            style: TextStyle(
-                              fontSize: 60,
-                              color: Colors.white,
-                            ),
+                            style: kUnitTextStyle,
                           ),
                           const SizedBox(
                             width: 10,
@@ -155,19 +149,11 @@ class _LocationScreenState extends State<LocationScreen> {
                         children: [
                           const Text(
                             'Temp Min  :',
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kTempKeyTextStyle,
                           ),
                           Text(
                             tempMin.toStringAsFixed(1),
-                            style: const TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kTempValueTextStyle,
                           )
                         ],
                       ),
@@ -175,19 +161,11 @@ class _LocationScreenState extends State<LocationScreen> {
                         children: [
                           const Text(
                             'Temp Max  :',
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kTempKeyTextStyle,
                           ),
                           Text(
                             tempMax.toStringAsFixed(1),
-                            style: const TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kTempValueTextStyle,
                           )
                         ],
                       ),
@@ -196,13 +174,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       ),
                       Text(
                         'It has $description now in $cityName',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 45,
-                          fontWeight: FontWeight.bold,
-                          //fontFamily: 'Cairo',
-                          wordSpacing: 0.01,
-                        ),
+                        style: kDescriptionTextStyle,
                         textAlign: TextAlign.center,
                       )
                     ],
