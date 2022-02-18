@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/utilities/constants.dart';
 
 class CityScreen extends StatelessWidget {
   const CityScreen({Key? key}) : super(key: key);
@@ -21,18 +22,25 @@ class CityScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      icon: Icon(
-                        Icons.location_city,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      hintText: 'Enter city',
-                      hintStyle: TextStyle(
-                        fontSize: 20,
-                      )),
+                  style: const TextStyle(
+                    fontSize: 25,
+                  ),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    icon: Icon(
+                      Icons.location_city,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    hintText: 'Enter city',
+                    hintStyle: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
                   onChanged: (value) {
                     print(value);
                     name = value;
@@ -43,12 +51,9 @@ class CityScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context, name);
                 },
-                child: Text(
+                child: const Text(
                   'Get Weather',
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
-                  ),
+                  style: kTextButtonStyle,
                 ),
               )
             ],
@@ -56,5 +61,14 @@ class CityScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class BackgroundImage extends StatelessWidget {
+  const BackgroundImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

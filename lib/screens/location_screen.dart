@@ -88,6 +88,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         children: [
                           IconButton(
                             onPressed: () {
+                              dataReturned = false;
                               // find the current location again
                               getWeatherDataByLocation();
                             },
